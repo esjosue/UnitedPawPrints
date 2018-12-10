@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c9063bd4f0a413ea4db3e23c690481d" Name="Diagram1">
+        <EntityTypeShape EntityType="dbpawprintsModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_adopciones" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_animales" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_especies" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_login" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_poblacion" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_reportes" Width="1.5" PointX="10" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_roles" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_tipoRep" Width="1.5" PointX="7.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_usuarios" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbpawprintsModel.tbl_voluntarios" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_adopc__Anima__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_adopc__Usuar__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_anima__Espec__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_anima__Pobla__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_pobla__Espec__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_login__Rol__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_usuar__Datos__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_repor__TipoR__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="dbpawprintsModel.FK__tbl_volun__Usuar__5EBF139D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

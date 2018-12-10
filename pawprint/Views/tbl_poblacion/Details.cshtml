@@ -1,0 +1,34 @@
+﻿@model pawprint.Models.tbl_poblacion
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>tbl_poblacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_especies.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_especies.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdPob }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

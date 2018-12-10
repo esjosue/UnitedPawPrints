@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbpawprintsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_adopciones">
+          <Key>
+            <PropertyRef Name="IdAdopcion" />
+          </Key>
+          <Property Name="IdAdopcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Animal" Type="int" />
+          <Property Name="Usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_animales">
+          <Key>
+            <PropertyRef Name="IdAnimal" />
+          </Key>
+          <Property Name="IdAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clase" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+          <Property Name="Raza" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Tamaño" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaNac" Type="date" />
+          <Property Name="Peso" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Situacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Vacunas" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Temperamento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Especie" Type="int" />
+          <Property Name="Poblacion" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_especies">
+          <Key>
+            <PropertyRef Name="IdEspecie" />
+          </Key>
+          <Property Name="IdEspecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_login">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rol" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_poblacion">
+          <Key>
+            <PropertyRef Name="IdPob" />
+          </Key>
+          <Property Name="IdPob" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Especie" Type="int" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_reportes">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+          </Key>
+          <Property Name="IdReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoAnimal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoReporte" Type="int" />
+          <Property Name="Telefono" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_tipoRep">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dui" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Datos" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_voluntarios">
+          <Key>
+            <PropertyRef Name="IdVoluntario" />
+          </Key>
+          <Property Name="IdVoluntario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="int" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tbl_adopc__Anima__5FB337D6">
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="0..1" />
+          <End Role="tbl_adopciones" Type="Self.tbl_adopciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_animales">
+              <PropertyRef Name="IdAnimal" />
+            </Principal>
+            <Dependent Role="tbl_adopciones">
+              <PropertyRef Name="Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_adopc__Usuar__60A75C0F">
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="0..1" />
+          <End Role="tbl_adopciones" Type="Self.tbl_adopciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="tbl_adopciones">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_anima__Espec__5CD6CB2B">
+          <End Role="tbl_especies" Type="Self.tbl_especies" Multiplicity="0..1" />
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_especies">
+              <PropertyRef Name="IdEspecie" />
+            </Principal>
+            <Dependent Role="tbl_animales">
+              <PropertyRef Name="Especie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_anima__Pobla__5DCAEF64">
+          <End Role="tbl_poblacion" Type="Self.tbl_poblacion" Multiplicity="0..1" />
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_poblacion">
+              <PropertyRef Name="IdPob" />
+            </Principal>
+            <Dependent Role="tbl_animales">
+              <PropertyRef Name="Poblacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_login__Rol__5BE2A6F2">
+          <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="0..1" />
+          <End Role="tbl_login" Type="Self.tbl_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_roles">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="tbl_login">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_pobla__Espec__01142BA1">
+          <End Role="tbl_especies" Type="Self.tbl_especies" Multiplicity="0..1" />
+          <End Role="tbl_poblacion" Type="Self.tbl_poblacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_especies">
+              <PropertyRef Name="IdEspecie" />
+            </Principal>
+            <Dependent Role="tbl_poblacion">
+              <PropertyRef Name="Especie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_repor__TipoR__619B8048">
+          <End Role="tbl_tipoRep" Type="Self.tbl_tipoRep" Multiplicity="0..1" />
+          <End Role="tbl_reportes" Type="Self.tbl_reportes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_tipoRep">
+              <PropertyRef Name="IdTipo" />
+            </Principal>
+            <Dependent Role="tbl_reportes">
+              <PropertyRef Name="TipoReporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_usuar__Datos__5AEE82B9">
+          <End Role="tbl_login" Type="Self.tbl_login" Multiplicity="0..1" />
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_login">
+              <PropertyRef Name="IdLogin" />
+            </Principal>
+            <Dependent Role="tbl_usuarios">
+              <PropertyRef Name="Datos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_volun__Usuar__5EBF139D">
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="0..1" />
+          <End Role="tbl_voluntarios" Type="Self.tbl_voluntarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="tbl_voluntarios">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbpawprintsModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_adopciones" EntityType="Self.tbl_adopciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_animales" EntityType="Self.tbl_animales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_especies" EntityType="Self.tbl_especies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_login" EntityType="Self.tbl_login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_poblacion" EntityType="Self.tbl_poblacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_reportes" EntityType="Self.tbl_reportes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_roles" EntityType="Self.tbl_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_tipoRep" EntityType="Self.tbl_tipoRep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_usuarios" EntityType="Self.tbl_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_voluntarios" EntityType="Self.tbl_voluntarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_adopc__Anima__5FB337D6" Association="Self.FK__tbl_adopc__Anima__5FB337D6">
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+            <End Role="tbl_adopciones" EntitySet="tbl_adopciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_adopc__Usuar__60A75C0F" Association="Self.FK__tbl_adopc__Usuar__60A75C0F">
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+            <End Role="tbl_adopciones" EntitySet="tbl_adopciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_anima__Espec__5CD6CB2B" Association="Self.FK__tbl_anima__Espec__5CD6CB2B">
+            <End Role="tbl_especies" EntitySet="tbl_especies" />
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_anima__Pobla__5DCAEF64" Association="Self.FK__tbl_anima__Pobla__5DCAEF64">
+            <End Role="tbl_poblacion" EntitySet="tbl_poblacion" />
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_login__Rol__5BE2A6F2" Association="Self.FK__tbl_login__Rol__5BE2A6F2">
+            <End Role="tbl_roles" EntitySet="tbl_roles" />
+            <End Role="tbl_login" EntitySet="tbl_login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_pobla__Espec__01142BA1" Association="Self.FK__tbl_pobla__Espec__01142BA1">
+            <End Role="tbl_especies" EntitySet="tbl_especies" />
+            <End Role="tbl_poblacion" EntitySet="tbl_poblacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_repor__TipoR__619B8048" Association="Self.FK__tbl_repor__TipoR__619B8048">
+            <End Role="tbl_tipoRep" EntitySet="tbl_tipoRep" />
+            <End Role="tbl_reportes" EntitySet="tbl_reportes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_usuar__Datos__5AEE82B9" Association="Self.FK__tbl_usuar__Datos__5AEE82B9">
+            <End Role="tbl_login" EntitySet="tbl_login" />
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_volun__Usuar__5EBF139D" Association="Self.FK__tbl_volun__Usuar__5EBF139D">
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+            <End Role="tbl_voluntarios" EntitySet="tbl_voluntarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbpawprintsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_adopciones">
+          <Key>
+            <PropertyRef Name="IdAdopcion" />
+          </Key>
+          <Property Name="IdAdopcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Animal" Type="Int32" />
+          <Property Name="Usuario" Type="Int32" />
+          <NavigationProperty Name="tbl_animales" Relationship="Self.FK__tbl_adopc__Anima__5FB337D6" FromRole="tbl_adopciones" ToRole="tbl_animales" />
+          <NavigationProperty Name="tbl_usuarios" Relationship="Self.FK__tbl_adopc__Usuar__60A75C0F" FromRole="tbl_adopciones" ToRole="tbl_usuarios" />
+        </EntityType>
+        <EntityType Name="tbl_animales">
+          <Key>
+            <PropertyRef Name="IdAnimal" />
+          </Key>
+          <Property Name="IdAnimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <Property Name="Raza" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tamaño" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNac" Type="DateTime" Precision="0" />
+          <Property Name="Peso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Situacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vacunas" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Temperamento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especie" Type="Int32" />
+          <Property Name="Poblacion" Type="Int32" />
+          <NavigationProperty Name="tbl_adopciones" Relationship="Self.FK__tbl_adopc__Anima__5FB337D6" FromRole="tbl_animales" ToRole="tbl_adopciones" />
+          <NavigationProperty Name="tbl_especies" Relationship="Self.FK__tbl_anima__Espec__5CD6CB2B" FromRole="tbl_animales" ToRole="tbl_especies" />
+          <NavigationProperty Name="tbl_poblacion" Relationship="Self.FK__tbl_anima__Pobla__5DCAEF64" FromRole="tbl_animales" ToRole="tbl_poblacion" />
+        </EntityType>
+        <EntityType Name="tbl_especies">
+          <Key>
+            <PropertyRef Name="IdEspecie" />
+          </Key>
+          <Property Name="IdEspecie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_animales" Relationship="Self.FK__tbl_anima__Espec__5CD6CB2B" FromRole="tbl_especies" ToRole="tbl_animales" />
+          <NavigationProperty Name="tbl_poblacion" Relationship="Self.FK__tbl_pobla__Espec__01142BA1" FromRole="tbl_especies" ToRole="tbl_poblacion" />
+        </EntityType>
+        <EntityType Name="tbl_login">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="Int32" />
+          <NavigationProperty Name="tbl_roles" Relationship="Self.FK__tbl_login__Rol__5BE2A6F2" FromRole="tbl_login" ToRole="tbl_roles" />
+          <NavigationProperty Name="tbl_usuarios" Relationship="Self.FK__tbl_usuar__Datos__5AEE82B9" FromRole="tbl_login" ToRole="tbl_usuarios" />
+        </EntityType>
+        <EntityType Name="tbl_poblacion">
+          <Key>
+            <PropertyRef Name="IdPob" />
+          </Key>
+          <Property Name="IdPob" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Especie" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_animales" Relationship="Self.FK__tbl_anima__Pobla__5DCAEF64" FromRole="tbl_poblacion" ToRole="tbl_animales" />
+          <NavigationProperty Name="tbl_especies" Relationship="Self.FK__tbl_pobla__Espec__01142BA1" FromRole="tbl_poblacion" ToRole="tbl_especies" />
+        </EntityType>
+        <EntityType Name="tbl_reportes">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+          </Key>
+          <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoAnimal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoReporte" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_tipoRep" Relationship="Self.FK__tbl_repor__TipoR__619B8048" FromRole="tbl_reportes" ToRole="tbl_tipoRep" />
+        </EntityType>
+        <EntityType Name="tbl_roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_login" Relationship="Self.FK__tbl_login__Rol__5BE2A6F2" FromRole="tbl_roles" ToRole="tbl_login" />
+        </EntityType>
+        <EntityType Name="tbl_tipoRep">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_reportes" Relationship="Self.FK__tbl_repor__TipoR__619B8048" FromRole="tbl_tipoRep" ToRole="tbl_reportes" />
+        </EntityType>
+        <EntityType Name="tbl_usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dui" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Datos" Type="Int32" />
+          <NavigationProperty Name="tbl_adopciones" Relationship="Self.FK__tbl_adopc__Usuar__60A75C0F" FromRole="tbl_usuarios" ToRole="tbl_adopciones" />
+          <NavigationProperty Name="tbl_login" Relationship="Self.FK__tbl_usuar__Datos__5AEE82B9" FromRole="tbl_usuarios" ToRole="tbl_login" />
+          <NavigationProperty Name="tbl_voluntarios" Relationship="Self.FK__tbl_volun__Usuar__5EBF139D" FromRole="tbl_usuarios" ToRole="tbl_voluntarios" />
+        </EntityType>
+        <EntityType Name="tbl_voluntarios">
+          <Key>
+            <PropertyRef Name="IdVoluntario" />
+          </Key>
+          <Property Name="IdVoluntario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="Int32" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_usuarios" Relationship="Self.FK__tbl_volun__Usuar__5EBF139D" FromRole="tbl_voluntarios" ToRole="tbl_usuarios" />
+        </EntityType>
+        <Association Name="FK__tbl_adopc__Anima__5FB337D6">
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="0..1" />
+          <End Role="tbl_adopciones" Type="Self.tbl_adopciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_animales">
+              <PropertyRef Name="IdAnimal" />
+            </Principal>
+            <Dependent Role="tbl_adopciones">
+              <PropertyRef Name="Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_adopc__Usuar__60A75C0F">
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="0..1" />
+          <End Role="tbl_adopciones" Type="Self.tbl_adopciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="tbl_adopciones">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_anima__Espec__5CD6CB2B">
+          <End Role="tbl_especies" Type="Self.tbl_especies" Multiplicity="0..1" />
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_especies">
+              <PropertyRef Name="IdEspecie" />
+            </Principal>
+            <Dependent Role="tbl_animales">
+              <PropertyRef Name="Especie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_anima__Pobla__5DCAEF64">
+          <End Role="tbl_poblacion" Type="Self.tbl_poblacion" Multiplicity="0..1" />
+          <End Role="tbl_animales" Type="Self.tbl_animales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_poblacion">
+              <PropertyRef Name="IdPob" />
+            </Principal>
+            <Dependent Role="tbl_animales">
+              <PropertyRef Name="Poblacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_pobla__Espec__01142BA1">
+          <End Role="tbl_especies" Type="Self.tbl_especies" Multiplicity="0..1" />
+          <End Role="tbl_poblacion" Type="Self.tbl_poblacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_especies">
+              <PropertyRef Name="IdEspecie" />
+            </Principal>
+            <Dependent Role="tbl_poblacion">
+              <PropertyRef Name="Especie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_login__Rol__5BE2A6F2">
+          <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="0..1" />
+          <End Role="tbl_login" Type="Self.tbl_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_roles">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="tbl_login">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_usuar__Datos__5AEE82B9">
+          <End Role="tbl_login" Type="Self.tbl_login" Multiplicity="0..1" />
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_login">
+              <PropertyRef Name="IdLogin" />
+            </Principal>
+            <Dependent Role="tbl_usuarios">
+              <PropertyRef Name="Datos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_repor__TipoR__619B8048">
+          <End Role="tbl_tipoRep" Type="Self.tbl_tipoRep" Multiplicity="0..1" />
+          <End Role="tbl_reportes" Type="Self.tbl_reportes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_tipoRep">
+              <PropertyRef Name="IdTipo" />
+            </Principal>
+            <Dependent Role="tbl_reportes">
+              <PropertyRef Name="TipoReporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_volun__Usuar__5EBF139D">
+          <End Role="tbl_usuarios" Type="Self.tbl_usuarios" Multiplicity="0..1" />
+          <End Role="tbl_voluntarios" Type="Self.tbl_voluntarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="tbl_voluntarios">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbpawprintsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_adopciones" EntityType="Self.tbl_adopciones" />
+          <EntitySet Name="tbl_animales" EntityType="Self.tbl_animales" />
+          <EntitySet Name="tbl_especies" EntityType="Self.tbl_especies" />
+          <EntitySet Name="tbl_login" EntityType="Self.tbl_login" />
+          <EntitySet Name="tbl_poblacion" EntityType="Self.tbl_poblacion" />
+          <EntitySet Name="tbl_reportes" EntityType="Self.tbl_reportes" />
+          <EntitySet Name="tbl_roles" EntityType="Self.tbl_roles" />
+          <EntitySet Name="tbl_tipoRep" EntityType="Self.tbl_tipoRep" />
+          <EntitySet Name="tbl_usuarios" EntityType="Self.tbl_usuarios" />
+          <EntitySet Name="tbl_voluntarios" EntityType="Self.tbl_voluntarios" />
+          <AssociationSet Name="FK__tbl_adopc__Anima__5FB337D6" Association="Self.FK__tbl_adopc__Anima__5FB337D6">
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+            <End Role="tbl_adopciones" EntitySet="tbl_adopciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_adopc__Usuar__60A75C0F" Association="Self.FK__tbl_adopc__Usuar__60A75C0F">
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+            <End Role="tbl_adopciones" EntitySet="tbl_adopciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_anima__Espec__5CD6CB2B" Association="Self.FK__tbl_anima__Espec__5CD6CB2B">
+            <End Role="tbl_especies" EntitySet="tbl_especies" />
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_anima__Pobla__5DCAEF64" Association="Self.FK__tbl_anima__Pobla__5DCAEF64">
+            <End Role="tbl_poblacion" EntitySet="tbl_poblacion" />
+            <End Role="tbl_animales" EntitySet="tbl_animales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_pobla__Espec__01142BA1" Association="Self.FK__tbl_pobla__Espec__01142BA1">
+            <End Role="tbl_especies" EntitySet="tbl_especies" />
+            <End Role="tbl_poblacion" EntitySet="tbl_poblacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_login__Rol__5BE2A6F2" Association="Self.FK__tbl_login__Rol__5BE2A6F2">
+            <End Role="tbl_roles" EntitySet="tbl_roles" />
+            <End Role="tbl_login" EntitySet="tbl_login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_usuar__Datos__5AEE82B9" Association="Self.FK__tbl_usuar__Datos__5AEE82B9">
+            <End Role="tbl_login" EntitySet="tbl_login" />
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_repor__TipoR__619B8048" Association="Self.FK__tbl_repor__TipoR__619B8048">
+            <End Role="tbl_tipoRep" EntitySet="tbl_tipoRep" />
+            <End Role="tbl_reportes" EntitySet="tbl_reportes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_volun__Usuar__5EBF139D" Association="Self.FK__tbl_volun__Usuar__5EBF139D">
+            <End Role="tbl_usuarios" EntitySet="tbl_usuarios" />
+            <End Role="tbl_voluntarios" EntitySet="tbl_voluntarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbpawprintsModelStoreContainer" CdmEntityContainer="dbpawprintsEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbpawprintsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_adopciones">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_adopciones">
+              <MappingFragment StoreEntitySet="tbl_adopciones">
+                <ScalarProperty Name="IdAdopcion" ColumnName="IdAdopcion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Animal" ColumnName="Animal" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_animales">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_animales">
+              <MappingFragment StoreEntitySet="tbl_animales">
+                <ScalarProperty Name="IdAnimal" ColumnName="IdAnimal" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Tamaño" ColumnName="Tamaño" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Situacion" ColumnName="Situacion" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Vacunas" ColumnName="Vacunas" />
+                <ScalarProperty Name="Temperamento" ColumnName="Temperamento" />
+                <ScalarProperty Name="Especie" ColumnName="Especie" />
+                <ScalarProperty Name="Poblacion" ColumnName="Poblacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_especies">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_especies">
+              <MappingFragment StoreEntitySet="tbl_especies">
+                <ScalarProperty Name="IdEspecie" ColumnName="IdEspecie" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_login">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_login">
+              <MappingFragment StoreEntitySet="tbl_login">
+                <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_poblacion">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_poblacion">
+              <MappingFragment StoreEntitySet="tbl_poblacion">
+                <ScalarProperty Name="IdPob" ColumnName="IdPob" />
+                <ScalarProperty Name="Especie" ColumnName="Especie" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_reportes">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_reportes">
+              <MappingFragment StoreEntitySet="tbl_reportes">
+                <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+                <ScalarProperty Name="TipoAnimal" ColumnName="TipoAnimal" />
+                <ScalarProperty Name="TipoReporte" ColumnName="TipoReporte" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_roles">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_roles">
+              <MappingFragment StoreEntitySet="tbl_roles">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_tipoRep">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_tipoRep">
+              <MappingFragment StoreEntitySet="tbl_tipoRep">
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_usuarios">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_usuarios">
+              <MappingFragment StoreEntitySet="tbl_usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Dui" ColumnName="Dui" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Datos" ColumnName="Datos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_voluntarios">
+            <EntityTypeMapping TypeName="dbpawprintsModel.tbl_voluntarios">
+              <MappingFragment StoreEntitySet="tbl_voluntarios">
+                <ScalarProperty Name="IdVoluntario" ColumnName="IdVoluntario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

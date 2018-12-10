@@ -1,0 +1,136 @@
+﻿@model pawprint.Models.tbl_animales
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro de eliminar esto?</h3>
+<div>
+    <h4>tbl_animales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamaño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamaño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vacunas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vacunas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_especies.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_especies.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_poblacion.IdPob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_poblacion.IdPob)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<pawprint.Models.tbl_animales>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamaño)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Situacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vacunas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_especies.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_poblacion.IdPob)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Raza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tamaño)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Situacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vacunas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_especies.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_poblacion.IdPob)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdAnimal }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdAnimal }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdAnimal })
+        </td>
+    </tr>
+}
+
+</table>

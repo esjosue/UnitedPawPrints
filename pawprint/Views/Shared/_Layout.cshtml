@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - UnitedPawPrints</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Animales", "Index", "tbl_animales", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Adopciones", "Index", "tbl_adopciones", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Especies", "Index", "tbl_especies", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Población", "Index", "tbl_poblacion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Reportes", "Index", "tbl_reportes", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Tipo de Reportes", "Index", "tbl_tipoRep", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Usuarios", "Index", "tbl_usuarios", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Datos", "Index", "tbl_login", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Roles", "Index", "tbl_roles", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Voluntarios", "Index", "tbl_voluntarios", new { area = "" }, new { @class = "navbar-brand" })
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - UnitedPawPrints</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

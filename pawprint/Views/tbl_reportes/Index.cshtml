@@ -1,0 +1,52 @@
+﻿@model IEnumerable<pawprint.Models.tbl_reportes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoAnimal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_tipoRep.Tipo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoAnimal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_tipoRep.Tipo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdReporte }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdReporte }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdReporte })
+            </td>
+        </tr>
+    }
+
+</table>

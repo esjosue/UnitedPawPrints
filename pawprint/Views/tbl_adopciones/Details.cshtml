@@ -1,0 +1,50 @@
+﻿@model pawprint.Models.tbl_adopciones
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>tbl_adopciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_animales.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_animales.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_usuarios.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_usuarios.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdAdopcion }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

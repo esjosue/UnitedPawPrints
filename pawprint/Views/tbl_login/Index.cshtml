@@ -1,0 +1,45 @@
+﻿@model IEnumerable<pawprint.Models.tbl_login>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_roles.Tipo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_roles.Tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdLogin }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdLogin }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdLogin })
+        </td>
+    </tr>
+}
+
+</table>

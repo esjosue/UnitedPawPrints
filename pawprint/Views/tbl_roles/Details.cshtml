@@ -1,0 +1,42 @@
+﻿@model pawprint.Models.tbl_roles
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tbl_roles</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tipo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IdRol }) |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+</body>
+</html>

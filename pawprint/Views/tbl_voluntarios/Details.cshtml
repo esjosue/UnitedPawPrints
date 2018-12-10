@@ -1,0 +1,42 @@
+﻿@model pawprint.Models.tbl_voluntarios
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tbl_voluntarios</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Edad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Edad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tbl_usuarios.Nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tbl_usuarios.Nombre)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IdVoluntario }) |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+</body>
+</html>
